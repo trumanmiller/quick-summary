@@ -1,23 +1,20 @@
 {
   "manifest_version": 2,
   "name": "Quick Summary",
+  "description": "This is a sample extension for demonstration purposes.",
   "version": "0.1",
-  "description": "Quick Summary is a chrome extension that uses AI technology to provide users with a one-paragraph summary of any article they are currently viewing.",
   "permissions": ["activeTab", "storage"],
+  "browser_action": {
+    "default_title": "My Extension",
+    "default_popup": "popup.html"
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"]
+      "js": ["main.js"]
     }
   ],
-  "browser_action": {
-    "default_icon": {
-      "16": "icon16.png",
-      "32": "icon32.png"
-    },
-    "default_popup": "popup.html"
-  },
-  "icons": {
-    "16": "icon16.png"
+  "background": {
+    "service_worker": "background.js"
   }
 }
