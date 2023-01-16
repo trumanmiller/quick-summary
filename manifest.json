@@ -10,7 +10,36 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": [
+        "https://www.cnn.com/20*",
+        "https://www.washingtonpost.com/a*",
+        "https://www.washingtonpost.com/b*",
+        "https://www.washingtonpost.com/c*",
+        "https://www.washingtonpost.com/d*",
+        "https://www.washingtonpost.com/e*",
+        "https://www.washingtonpost.com/f*",
+        "https://www.washingtonpost.com/g*",
+        "https://www.washingtonpost.com/h*",
+        "https://www.washingtonpost.com/i*",
+        "https://www.washingtonpost.com/j*",
+        "https://www.washingtonpost.com/k*",
+        "https://www.washingtonpost.com/l*",
+        "https://www.washingtonpost.com/m*",
+        "https://www.washingtonpost.com/n*",
+        "https://www.washingtonpost.com/o*",
+        "https://www.washingtonpost.com/p*",
+        "https://www.washingtonpost.com/q*",
+        "https://www.washingtonpost.com/r*",
+        "https://www.washingtonpost.com/s*",
+        "https://www.washingtonpost.com/t*",
+        "https://www.washingtonpost.com/u*",
+        "https://www.washingtonpost.com/v*",
+        "https://www.washingtonpost.com/w*",
+        "https://www.washingtonpost.com/x*",
+        "https://www.washingtonpost.com/y*",
+        "https://www.washingtonpost.com/z*",
+        "https://www.bbc.com/"
+      ],
       "js": ["main.js"]
     }
   ],

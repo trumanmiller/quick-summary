@@ -1,4 +1,4 @@
-const API_KEY = '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';
+const API_KEY = '';
 
 function OpenaiFetchAPI(toSummarize) {
   console.log('Calling GPT3');
@@ -25,9 +25,7 @@ function OpenaiFetchAPI(toSummarize) {
     })
     .then((data) => {
       console.log(data);
-      // chrome.runtime.sendMessage({ data: data }, function (response) {
-      //   console.log(response);
-      // });
+      span.innerText = data.choices[0].text;
     })
     .catch((error) => {
       console.log('Something bad happened ' + error);
@@ -48,42 +46,29 @@ function websiteScraper() {
   return stringArr.join(' ');
 }
 
-// const pText = websiteScraper();
-// OpenaiFetchAPI(pText);
+const pText = websiteScraper();
+const proccessed = OpenaiFetchAPI(pText);
 
-// chrome.runtime.sendMessage({scrapedText: pText});
+const body = document.querySelector('body');
+const summaryDiv = document.createElement('div');
+summaryDiv.style.position = 'absolute';
+summaryDiv.style.top = '300px';
+summaryDiv.style.right = '25px';
+summaryDiv.style.width = '450px';
+summaryDiv.style.right = '35px';
+summaryDiv.style.fontFamily = 'Roboto';
+summaryDiv.style.fontSize = '1.2em';
+summaryDiv.style.border = '2px';
+summaryDiv.style.borderColor = '#757575';
 
-// const test = document.getElementById('scrapped');
-// console.log(test.
+summaryDiv.style.boxShadow = '-3px 5px 25px 9px #000000;';
+summaryDiv.style.boxShadow = '-3px 5px 25px 9px #000000;';
+summaryDiv.style.backgroundColor = `linear-gradient(135deg, #FFFFFF 0%, #43914B 100%, #9EBC80 100%)`;
 
-const testObj = {
-  id: 'cmpl-6XjFTTiR79FJLRQJpjEuCo4sqzHal',
-  object: 'text_completion',
-  created: 1673496779,
-  model: 'text-davinci-003',
-  choices: [
-    {
-      text: '\nOlivia Hussey and Leonard Whiting, who were 15 and 16 when they starred in 1968 movie "Romeo and Juliet," have filed a lawsuit against Paramount alleging sexual exploitation and distributing nude images of adolescent children without their consent. They are seeking $500 million in damages, and the suit is being enabled by the California Child Victims Act. An actor and HBO\'s in-house intimacy coordinator have spoken out about the need for clear communication and respect for performers\' well-being on set. The incident highlights the vulnerability of minors in the film industry and the need for more protections for young actors.',
-      index: 0,
-      logprobs: null,
-      finish_reason: 'stop',
-    },
-  ],
-  usage: {
-    prompt_tokens: 1465,
-    completion_tokens: 122,
-    total_tokens: 1587,
-  },
-};
-
-// chrome.runtime.sendMessage({ greeting: 'hello' }, function (response) {
-//   console.log(response.farewell);
-// });
-
-// chrome.runtime.sendMessage({ data: 'hello world' }, function (response) {
-//   console.log(response);
-// });
-
-chrome.runtime.sendMessage({ greeting: 'hello' }, function (response) {
-  console.log(response.farewell);
-});
+const header = document.createElement('h1');
+header.innerText = 'Quick Summary';
+const span = document.createElement('span');
+span.innerText = 'We are reading it for you.... ';
+summaryDiv.appendChild(header);
+summaryDiv.appendChild(span);
+body.appendChild(summaryDiv);
